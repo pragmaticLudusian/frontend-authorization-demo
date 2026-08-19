@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { removeToken } from "../utils/token";
+import AppContext from "../contexts/AppContext";
 import Logo from "./Logo";
 import "./styles/NavBar.css";
 
-function NavBar({ setIsLoggedIn }) {
+function NavBar() {
   const navigate = useNavigate();
+  const { setIsLoggedIn } = useContext(AppContext);
 
   function signOut() {
     removeToken();
@@ -29,7 +32,7 @@ function NavBar({ setIsLoggedIn }) {
           </NavLink>
         </li>
         <li>
-          <button onclick={signOut} className='navbar__link navbar__button'>
+          <button onClick={signOut} className='navbar__link navbar__button'>
             Sign Out
           </button>
         </li>

@@ -1,11 +1,13 @@
+import { useContext } from "react";
+import AppContext from "../contexts/AppContext";
 import NavBar from "./NavBar";
 import "./styles/MyProfile.css";
 
 function MyProfile({
   userData = { username: "Username here", email: "Email here" },
-  setIsLoggedIn,
 }) {
   const { username, email } = userData;
+  const { setIsLoggedIn } = useContext(AppContext);
   return (
     <>
       <NavBar setIsLoggedIn={setIsLoggedIn} />
